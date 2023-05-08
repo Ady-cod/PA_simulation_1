@@ -26,7 +26,7 @@ public class Extractor {
         return quantity;
     }
 
-    protected int getPercentageExtracted(){
+    public int getPercentageExtracted(){
         return quantity*100/capacity;
     }
 }

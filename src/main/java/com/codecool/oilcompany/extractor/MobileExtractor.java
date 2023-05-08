@@ -1,7 +1,5 @@
 package com.codecool.oilcompany.extractor;
 
-import com.codecool.oilcompany.FaultReporter;
-
 public class MobileExtractor extends ExtractorWithLocation implements FaultReporter {
     public MobileExtractor(int capacity, int quantity, String location) {
         super(capacity, quantity, location);
@@ -14,6 +12,6 @@ public class MobileExtractor extends ExtractorWithLocation implements FaultRepor
 
     @Override
     public boolean isFaulty() {
-        return false;
+        return this.getPercentageExtracted() < 25;
     }
 }

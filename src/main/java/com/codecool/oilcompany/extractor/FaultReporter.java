@@ -1,4 +1,4 @@
-package com.codecool.oilcompany;
+package com.codecool.oilcompany.extractor;
 
 public interface FaultReporter {
     boolean isFaulty();

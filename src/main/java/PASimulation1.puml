@@ -4,10 +4,10 @@ abstract class Extractor{
 - id: UUID;
 - capacity: int;
 - quantity: int;
-# getPercentageExtracted(): int;
++ getPercentageExtracted(): int;
 }
 abstract class ExtractorWithLocation extends Extractor{
-# location: String;
+- location: String;
 }
 interface FaultReporter{
 + isFaulty(): boolean;
@@ -19,7 +19,7 @@ class MobileExtractor extends ExtractorWithLocation implements FaultReporter{
 class OffshorePlatform extends Extractor implements FaultReporter{
 - workers: List<Worker>;
 - hasMedic():boolean;
-- hasWorkedLess():boolean;
+- hasExhaustedWorker():boolean;
 }
 class Worker{
 - name: String;
