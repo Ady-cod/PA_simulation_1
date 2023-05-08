@@ -1,0 +1,9 @@
+package com.codecool.oilcompany.extractor;
+
+public class ExtractorWithLocation extends Extractor{
+    protected String location;
+    public ExtractorWithLocation(int capacity, int quantity,String location) {
+        super(capacity, quantity);
+        this.location = location;
+    }
+}

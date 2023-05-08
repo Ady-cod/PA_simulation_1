@@ -1,0 +1,45 @@
+@startuml
+
+abstract class Extractor{
+- id: UUID;
+- capacity: int;
+- quantity: int;
+# getPercentageExtracted(): int;
+}
+abstract class ExtractorWithLocation extends Extractor{
+# location: String;
+}
+interface FaultReporter{
++ isFaulty(): boolean;
+}
+class FixedExtractor extends ExtractorWithLocation{}
+class MobileExtractor extends ExtractorWithLocation implements FaultReporter{
++ setLocation(String): void;
+}
+class OffshorePlatform extends Extractor implements FaultReporter{
+- workers: List<Worker>;
+- hasMedic():boolean;
+- hasWorkedLess():boolean;
+}
+class Worker{
+- name: String;
+- position: Position;
+- numberOfDaysOnBoard: int;
+}
+enum Position{
+MANUAL_WORKER,
+MEDIC,
+MANAGER
+}
+class OilCompany{
+- extractors: List<Extractor>;
++ getNumberOfDevicesWithFaults(): int;
++ getEfficientExtractors(): List<Extractor>;
+}
+
+OilCompany --> Extractor
+Worker --> Position
+OffshorePlatform --> Worker
+
+
+@enduml
